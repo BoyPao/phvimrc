@@ -161,7 +161,7 @@ if has("autocmd")
                 \ endif
 endif
 " When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.vimrc
+autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 " Delete witespace while saving file
 autocmd BufWrite * :call DeleteTrailingWS()
 " Exit Vim if NERDTree is the only window remaining in the only tab.
@@ -226,7 +226,7 @@ function! ColorColumnSwitch ()
 	endif
 endfunction
 
-function DebugVim(target)
+function! DebugVim(target)
 	" Define anything needs to be debug
 	echo "DebugVim +++"
 	echo "DebugVim ---"
@@ -415,6 +415,9 @@ let Tlist_Exit_OnlyWindow=1
 "------------------------------------------------------------------------------
 "run neocomplete while vim startup
 let g:neocomplcache_enable_at_startup = 1
+"------------------------------------------------------------------------------
+" Cace: ctag and cscope enhance plugin
+"------------------------------------------------------------------------------
 "------------------------------------------------------------------------------
 " Phcs: a colorscheme
 "------------------------------------------------------------------------------
