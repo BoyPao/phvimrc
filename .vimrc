@@ -74,6 +74,8 @@ nmap <leader>cp :cp<cr>
 " ConqueTerm can add a window to show shell result in vim
 nmap <C-p> :vertical terminal<cr>
 nmap <C-o> :terminal<cr>
+" On/off cscopequickfix
+nmap <leader>cq :CACEQuickfixTrigger<CR>
 "------------------------------------------------------------------------------
 " Reading:
 "------------------------------------------------------------------------------
@@ -96,6 +98,31 @@ nmap <leader>tm :tabmove
 nmap <leader>tn :tabnext<cr>
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
+" use n/N/<leader>g to search current selection in visual mode
+vnoremap <silent> <leader>zt y:call VisualSearch('vg')<CR>
+vnoremap <silent> n y:call VisualSearch('f')<CR>
+vnoremap <silent> N y:call VisualSearch('b')<CR>
+" CACE maps
+" Auto generate/update DB
+map <silent> <C-@> :CACEUpdate<CR>
+" find definiation
+nnoremap <silent> zg :CACEFind g <C-R>=expand("<cword>")<CR><CR>
+" find who calls
+nnoremap <silent> zc :CACEFind c <C-R>=expand("<cword>")<CR><CR>
+" find text
+nnoremap <silent> zt :CACEFind t <C-R>=expand("<cword>")<CR><CR>
+" find symble
+nnoremap <silent> zs :CACEFind s <C-R>=expand("<cword>")<CR><CR>
+" find who is called by selected
+nnoremap <silent> zd :CACEFind d <C-R>=expand("<cword>")<CR><CR>
+" metch with egrep mode
+nnoremap <silent> ze :CACEFind e <C-R>=expand("<cword>")<CR><CR>
+" find and open target file
+nnoremap <silent> zf :CACEFind f <C-R>=expand("<cfile>")<CR><CR>
+" find who include target file
+nnoremap <silent> zi :CACEFind i <C-R>=expand("<cfile>")<CR><CR>
+" cace grep
+nnoremap <silent> <leader>zt :CACEGrep <C-R>=expand("<cword>")<CR><CR>
 "------------------------------------------------------------------------------
 " Edition:
 "------------------------------------------------------------------------------
@@ -223,6 +250,20 @@ function! ColorColumnSwitch ()
 		set cc=0
 	else
 		set cc=80
+	endif
+endfunction
+
+function! VisualSearch(direction)
+	let reg = @0
+	if a:direction == 'vg'
+		exe "CACEGrep " . reg
+	else
+		if a:direction == 'b'
+			exe "normal ?" . reg . "\n"
+		elseif a:direction == 'f'
+			exe "normal /" . reg . "\n"
+		endif
+		let @/ = reg
 	endif
 endfunction
 
