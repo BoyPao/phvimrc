@@ -70,7 +70,7 @@ nmap ll :TlistToggle<cr>
 " Open /close NERDTree
 nmap kk :NERDTreeToggle<CR>
 " Open/close MiniBufExp
-nmap oo :MBEToggle<cr>
+nmap oo :TMiniBufExplorer<cr>
 " Open/close BufExplorer
 nmap <leader>kk :BufExplorerVerticalSplit<cr>
 " Cope use quickfix to show make info in vim
