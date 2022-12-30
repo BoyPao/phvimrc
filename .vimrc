@@ -45,6 +45,12 @@ nmap hh :split<cr>
 nmap qq :bd<cr>
 " Use ww replace buffer control
 nmap ww <C-W>
+" Keep same buffer control method in terminal
+tmap ww <C-W>
+" Exit terminal method
+tmap qq exit<cr>
+" Enter normal mode in terminal
+tmap <C-n> <C-W>N<cr>
 " Turn order of buffers towards right side
 nmap tt <C-w>r
 " Change window width
@@ -72,7 +78,7 @@ nmap <leader>co :botright cope<cr>
 nmap <leader>cn :cn<cr>
 nmap <leader>cp :cp<cr>
 " ConqueTerm can add a window to show shell result in vim
-nmap <C-p> :vertical terminal<cr>
+nmap <C-p> :vertical rightbelow terminal<cr>
 nmap <C-o> :terminal<cr>
 " On/off cscopequickfix
 nmap <leader>cq :CACEQuickfixTrigger<CR>
@@ -166,8 +172,8 @@ map <leader>pp :call SwitchPasteMode()<cr>
 "==============================================================================
 " Word map
 "==============================================================================
-" Insert time and press Enter, time will be replaced by local time
-iab time <c-r>=strftime("%y/%m/%d/ %H:%M")<cr>
+" Insert ctime and press Enter, ctime will be replaced by current time
+iab ctime <c-r>=strftime("%y/%m/%d/ %H:%M")<cr>
 
 "==============================================================================
 " CMD map
