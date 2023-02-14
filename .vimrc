@@ -81,7 +81,7 @@ nmap <leader>cp :cp<cr>
 nmap <C-p> :vertical rightbelow terminal<cr>
 nmap <C-o> :terminal<cr>
 " On/off cscopequickfix
-nmap <leader>cq :cacequickfixtrigger<CR>
+nmap <leader>cq :Cacequickfixtrigger<CR>
 "------------------------------------------------------------------------------
 " Reading:
 "------------------------------------------------------------------------------
@@ -110,25 +110,25 @@ vnoremap <silent> n y:call VisualSearch('f')<CR>
 vnoremap <silent> N y:call VisualSearch('b')<CR>
 " CACE maps
 " Auto generate/update DB
-map <silent> <C-@> :caceupdate<CR>
+map <silent> <C-@> :Caceupdate<CR>
 " find definiation
-nnoremap <silent> zg :cacefind g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> zg :Cacefind g <C-R>=expand("<cword>")<CR><CR>
 " find who calls
-nnoremap <silent> zc :cacefind c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> zc :Cacefind c <C-R>=expand("<cword>")<CR><CR>
 " find text
-nnoremap <silent> zt :cacefind t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> zt :Cacefind t <C-R>=expand("<cword>")<CR><CR>
 " find symble
-nnoremap <silent> zs :cacefind s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> zs :Cacefind s <C-R>=expand("<cword>")<CR><CR>
 " find who is called by selected
-nnoremap <silent> zd :cacefind d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> zd :Cacefind d <C-R>=expand("<cword>")<CR><CR>
 " metch with egrep mode
-nnoremap <silent> ze :cacefind e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> ze :Cacefind e <C-R>=expand("<cword>")<CR><CR>
 " find and open target file
-nnoremap <silent> zf :cacefind f <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <silent> zf :Cacefind f <C-R>=expand("<cfile>")<CR><CR>
 " find who include target file
-nnoremap <silent> zi :cacefind i <C-R>=expand("<cfile>")<CR><CR>
-" cace grep
-nnoremap <silent> <leader>zt :cacegrep <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> zi :Cacefind i <C-R>=expand("<cfile>")<CR><CR>
+" Cace grep
+nnoremap <silent> <leader>zt :Cacegrep <C-R>=expand("<cword>")<CR><CR>
 "------------------------------------------------------------------------------
 " Edition:
 "------------------------------------------------------------------------------
@@ -262,7 +262,7 @@ endfunction
 function! VisualSearch(direction)
 	let reg = @0
 	if a:direction == 'vg'
-		exe "cacegrep " . reg
+		exe "Cacegrep " . reg
 	else
 		if a:direction == 'b'
 			exe "normal ?" . reg . "\n"
