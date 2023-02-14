@@ -81,7 +81,7 @@ nmap <leader>cp :cp<cr>
 nmap <C-p> :vertical rightbelow terminal<cr>
 nmap <C-o> :terminal<cr>
 " On/off cscopequickfix
-nmap <leader>cq :CACEQuickfixTrigger<CR>
+nmap <leader>cq :cacequickfixtrigger<CR>
 "------------------------------------------------------------------------------
 " Reading:
 "------------------------------------------------------------------------------
@@ -110,25 +110,25 @@ vnoremap <silent> n y:call VisualSearch('f')<CR>
 vnoremap <silent> N y:call VisualSearch('b')<CR>
 " CACE maps
 " Auto generate/update DB
-map <silent> <C-@> :CACEUpdate<CR>
+map <silent> <C-@> :caceupdate<CR>
 " find definiation
-nnoremap <silent> zg :CACEFind g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> zg :cacefind g <C-R>=expand("<cword>")<CR><CR>
 " find who calls
-nnoremap <silent> zc :CACEFind c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> zc :cacefind c <C-R>=expand("<cword>")<CR><CR>
 " find text
-nnoremap <silent> zt :CACEFind t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> zt :cacefind t <C-R>=expand("<cword>")<CR><CR>
 " find symble
-nnoremap <silent> zs :CACEFind s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> zs :cacefind s <C-R>=expand("<cword>")<CR><CR>
 " find who is called by selected
-nnoremap <silent> zd :CACEFind d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> zd :cacefind d <C-R>=expand("<cword>")<CR><CR>
 " metch with egrep mode
-nnoremap <silent> ze :CACEFind e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> ze :cacefind e <C-R>=expand("<cword>")<CR><CR>
 " find and open target file
-nnoremap <silent> zf :CACEFind f <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <silent> zf :cacefind f <C-R>=expand("<cfile>")<CR><CR>
 " find who include target file
-nnoremap <silent> zi :CACEFind i <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <silent> zi :cacefind i <C-R>=expand("<cfile>")<CR><CR>
 " cace grep
-nnoremap <silent> <leader>zt :CACEGrep <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> <leader>zt :cacegrep <C-R>=expand("<cword>")<CR><CR>
 "------------------------------------------------------------------------------
 " Edition:
 "------------------------------------------------------------------------------
@@ -262,7 +262,7 @@ endfunction
 function! VisualSearch(direction)
 	let reg = @0
 	if a:direction == 'vg'
-		exe "CACEGrep " . reg
+		exe "cacegrep " . reg
 	else
 		if a:direction == 'b'
 			exe "normal ?" . reg . "\n"
@@ -286,9 +286,9 @@ endfunction
 set history=700
 " Auto-read file when it is updated
 set autoread
-" Set 7 lines to the curors - when moving vertical..
+" Set 7 lines to the cursor - when moving vertical..
 set so=7
-" Turn on WiLd menu - use TAB to get CMDs in CMD mode
+" Turn on Wild menu - use TAB to get CMDs in CMD mode
 set wildmenu
 " set menu wide as longest word
 set wildmode=list:longest,full
@@ -302,7 +302,7 @@ set nu
 set ruler
 " Set commandbar height
 set cmdheight=2
-" Can switch between buffers when change in buffuer is not saving
+" Able to switch between buffers when change in buffuer is not saving
 set hid
 " Set backspace priority higher then indent
 set backspace=eol,start,indent
@@ -463,7 +463,7 @@ let Tlist_Exit_OnlyWindow=1
 "run neocomplete while vim startup
 let g:neocomplcache_enable_at_startup = 1
 "------------------------------------------------------------------------------
-" Cace: ctag and cscope enhance plugin
+" CACE: ctag and cscope enhance plugin
 "------------------------------------------------------------------------------
 let g:caceInfoEveryTime = 1
 "------------------------------------------------------------------------------
