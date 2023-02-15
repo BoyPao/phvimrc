@@ -168,6 +168,12 @@ nmap <C-I> :call SwitchMouseState()<CR>
 nmap <leader>vv :e! ~/.vimrc<cr>
 " Open/close paste mode
 map <leader>pp :call SwitchPasteMode()<cr>
+" Use Tab & S-Tab to complete
+inoremap <Tab> <C-R>=CleverTabForCompletion(0)<CR>
+inoremap <S-Tab> <C-R>=CleverTabForCompletion(1)<CR>
+" Forbid Up & Down in popup menu
+inoremap <Down> <C-R>=pumvisible() ? "\<lt>C-E>" : "\<lt>Down>"<CR>
+inoremap <Up> <C-R>=pumvisible() ? "\<lt>C-E>" : "\<lt>Up>"<CR>
 
 "==============================================================================
 " Word map
@@ -270,6 +276,22 @@ function! VisualSearch(direction)
 			exe "normal /" . reg . "\n"
 		endif
 		let @/ = reg
+	endif
+endfunction
+
+function! CleverTabForCompletion(direction)
+	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+		if a:direction==0
+			return "\<Tab>"
+		else
+			return "\<S-Tab>"
+		endif
+	else
+		if a:direction==0
+			return "\<C-N>"
+		else
+			return "\<C-P>"
+		endif
 	endif
 endfunction
 
