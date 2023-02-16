@@ -172,8 +172,8 @@ map <leader>pp :call SwitchPasteMode()<cr>
 inoremap <Tab> <C-R>=CleverTabForCompletion(0)<CR>
 inoremap <S-Tab> <C-R>=CleverTabForCompletion(1)<CR>
 " Forbid Up & Down in popup menu
-inoremap <Down> <C-R>=pumvisible() ? "\<lt>C-E>" : "\<lt>Down>"<CR>
-inoremap <Up> <C-R>=pumvisible() ? "\<lt>C-E>" : "\<lt>Up>"<CR>
+inoremap <Down> <C-R>=pumvisible() ? "\<lt>C-E>\<lt>Down>" : "\<lt>Down>"<CR>
+inoremap <Up> <C-R>=pumvisible() ? "\<lt>C-E>\<lt>Up>" : "\<lt>Up>"<CR>
 
 "==============================================================================
 " Word map
@@ -280,17 +280,17 @@ function! VisualSearch(direction)
 endfunction
 
 function! CleverTabForCompletion(direction)
-	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-		if a:direction==0
-			return "\<Tab>"
-		else
-			return "\<S-Tab>"
-		endif
-	else
+	if pumvisible()
 		if a:direction==0
 			return "\<C-N>"
 		else
 			return "\<C-P>"
+		endif
+	else
+		if a:direction==0
+			return "\<Tab>"
+		else
+			return "\<S-Tab>"
 		endif
 	endif
 endfunction
