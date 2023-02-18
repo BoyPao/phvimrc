@@ -153,7 +153,7 @@ vmap <F6>" :s=^\("\)*==g<cr>:noh<cr>
 nmap <F6>" :s=^\("\)*==g<cr>:noh<cr>
 imap <F6>" <ESC>:s=^\("\)*==g<cr>:noh<cr>
 " Repeat to replace word in cursor line
-nmap rr :call RepeatOneLineReplace()<CR>
+nmap <Leader>rr :call RepeatOneLineReplace()<CR>
 " Delete white space
 nmap ds :%s/\s\+$//g<cr>
 " Delete ^M(\r) from windows
@@ -185,10 +185,8 @@ iab ctime <c-r>=strftime("%y/%m/%d/ %H:%M")<cr>
 "==============================================================================
 " CMD map
 "==============================================================================
-" Open a new buffer and enter curren CWD
-cno nb e ./
 " Use vimgrep for string search
-cno rr .,.+1s/<C-R>=expand("<cword>")<CR>//g <left><left><left>
+cno ,rr .,.+1s/<C-R>=expand("<cword>")<CR>//g <left><left><left>
 
 "==============================================================================
 " Auto CMD
@@ -369,7 +367,7 @@ set statusline=%F%m%r%h%w\ [line=%l,%v][%p%%]\ %{strftime(\"%y/%m/%d\ %H:%M\")}
 " When using GUI, set tab label content to show %t - File name (tail)
 set guitablabel=%t
 " Highlight cursor line
-"set cursorline
+set cursorline
 " Highlight cursor column
 "set cursorcolumn
 " Highlight matched brackets
