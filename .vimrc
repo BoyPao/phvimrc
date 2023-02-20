@@ -367,7 +367,7 @@ set statusline=%F%m%r%h%w\ [line=%l,%v][%p%%]\ %{strftime(\"%y/%m/%d\ %H:%M\")}
 " When using GUI, set tab label content to show %t - File name (tail)
 set guitablabel=%t
 " Highlight cursor line
-set cursorline
+"set cursorline  /* TODO: off reason: 1.mark.vim hl priority issue 2.redrawing slower */
 " Highlight cursor column
 "set cursorcolumn
 " Highlight matched brackets
