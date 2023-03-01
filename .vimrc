@@ -487,6 +487,7 @@ let g:neocomplcache_enable_at_startup = 1
 " CACE: ctag and cscope enhance plugin
 "------------------------------------------------------------------------------
 let g:caceInfoEveryTime = 1
+let g:caceHightlightEnhance=1
 "------------------------------------------------------------------------------
 " Phcs: a colorscheme
 "------------------------------------------------------------------------------
