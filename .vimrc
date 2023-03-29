@@ -172,8 +172,8 @@ map <leader>pp :call SwitchPasteMode()<cr>
 inoremap <Tab> <C-R>=CleverTabForCompletion(0)<CR>
 inoremap <S-Tab> <C-R>=CleverTabForCompletion(1)<CR>
 " Forbid Up & Down in popup menu
-inoremap <Down> <C-R>=pumvisible() ? "\<lt>C-E>\<lt>Down>" : "\<lt>Down>"<CR>
-inoremap <Up> <C-R>=pumvisible() ? "\<lt>C-E>\<lt>Up>" : "\<lt>Up>"<CR>
+inoremap <Down> <C-R>=pumvisible() ? "\<lt>C-Y>\<lt>Down>" : "\<lt>Down>"<CR>
+inoremap <Up> <C-R>=pumvisible() ? "\<lt>C-Y>\<lt>Up>" : "\<lt>Up>"<CR>
 inoremap <Enter> <C-R>=pumvisible() ? "\<lt>C-Y>" : "\<lt>Enter>"<CR>
 
 "==============================================================================
