@@ -153,7 +153,7 @@ vmap <F6>" :s=^\("\)*==g<cr>:noh<cr>
 nmap <F6>" :s=^\("\)*==g<cr>:noh<cr>
 imap <F6>" <ESC>:s=^\("\)*==g<cr>:noh<cr>
 " Repeat to replace word in cursor line
-nmap <Leader>rr :call RepeatOneLineReplace()<CR>
+nmap <Leader>rr :call RepeatOneLineReplace("<C-R>=expand("<cword>")<CR>")<CR>
 " Delete white space
 nmap ds :%s/\s\+$//g<cr>
 " Delete ^M(\r) from windows
@@ -186,7 +186,7 @@ iab ctime <c-r>=strftime("%y/%m/%d/ %H:%M")<cr>
 " CMD map
 "==============================================================================
 " Use vimgrep for string search
-cno ,rr .,.+1s/<C-R>=expand("<cword>")<CR>//g <left><left><left>
+cno ,rr .,.s/<C-R>=expand("<cword>")<CR>//g <left><left><left>
 
 "==============================================================================
 " Auto CMD
@@ -249,8 +249,15 @@ function! SwitchPasteMode()
 	echohl PreCondit | echo " paste mode: " g:pasteState | echohl None
 endfunction
 
-function! RepeatOneLineReplace()
-	if strpart(@:,0,6)==".,.+1s"
+function! RepeatOneLineReplace(cword)
+	let v:errmsg = ""
+	if strpart(@:,0,5)==".,.s/"
+		if a:cword != @/
+			exe "normal! n"
+		endif
+		if v:errmsg != ""
+			return v:errmsg
+		end
 		exe @:
 		echo ":" . @:
 	endif
