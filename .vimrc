@@ -502,6 +502,10 @@ if !empty(matchstr(&rtp, "phcolorscheme"))
 	if !empty(findfile("phcs.vim", matchstr(split(&rtp, ','), 'phcolorscheme') . '**'))
 		colorscheme phcs
 	endif
+else
+	if !empty(findfile("phcs.vim", $HOME . '/.vim/colors' . '**'))
+		colorscheme phcs
+	endif
 endif
 "------------------------------------------------------------------------------
 " SnipMeta:
