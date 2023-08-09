@@ -108,6 +108,11 @@ map <leader>cd :cd %:p:h<cr>
 vnoremap <silent> <leader>zt y:call VisualSearch('vg')<CR>
 vnoremap <silent> n y:call VisualSearch('f')<CR>
 vnoremap <silent> N y:call VisualSearch('b')<CR>
+" MHL maps
+" trigger match highlight
+map <leader>m :MhlTriggerMatch<CR>
+" clear all match highlight
+map <leader>n :MhlClearAllMatch<CR>
 " CACE maps
 " Auto generate/update DB
 map <silent> <C-@> :Caceupdate<CR>
@@ -374,7 +379,7 @@ set statusline=%F%m%r%h%w\ [line=%l,%v][%p%%]\ %{strftime(\"%y/%m/%d\ %H:%M\")}
 " When using GUI, set tab label content to show %t - File name (tail)
 set guitablabel=%t
 " Highlight cursor line
-"set cursorline  /* TODO: off reason: 1.mark.vim hl priority issue 2.redrawing slower */
+set cursorline
 " Highlight cursor column
 "set cursorcolumn
 " Highlight matched brackets
@@ -437,10 +442,10 @@ if !empty(findfile("plug.vim", $HOME . "/.vim/autoload/**"))
 	Plug 'vim-scripts/taglist.vim'
 	Plug 'vim-scripts/OmniCppComplete'
 	Plug 'vim-scripts/neocomplcache'
-	Plug 'vim-scripts/Mark'
 	Plug 'preservim/nerdtree'
 	Plug 'BoyPao/cace'
 	Plug 'BoyPao/phcolorscheme'
+	Plug 'BoyPao/mhl'
 	Plug 'octol/vim-cpp-enhanced-highlight'
 	Plug 'kshenoy/vim-signature'
 	" Snips for various languages
@@ -494,7 +499,7 @@ let g:neocomplcache_enable_at_startup = 1
 " CACE: ctag and cscope enhance plugin
 "------------------------------------------------------------------------------
 let g:caceInfoEveryTime = 1
-let g:caceHightlightEnhance=1
+let g:caceHighlightEnhance=1
 "------------------------------------------------------------------------------
 " Phcs: a colorscheme
 "------------------------------------------------------------------------------
