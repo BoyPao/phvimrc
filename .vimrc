@@ -110,9 +110,9 @@ vnoremap <silent> n y:call VisualSearch('f')<CR>
 vnoremap <silent> N y:call VisualSearch('b')<CR>
 " MHL maps
 " trigger match highlight
-map <leader>m :MhlTriggerMatch<CR>
+map <silent> <leader>m :MhlTriggerMatch<CR>
 " clear all match highlight
-map <leader>n :MhlClearAllMatch<CR>
+map <silent> <leader>n :MhlClearAllMatch<CR>
 " CACE maps
 " Auto generate/update DB
 map <silent> <C-@> :Caceupdate<CR>
