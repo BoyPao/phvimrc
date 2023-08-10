@@ -306,6 +306,22 @@ function! CleverTabForCompletion(direction)
 	endif
 endfunction
 
+function! SetColorScheme(dir, cs)
+	if !empty(matchstr(&rtp, a:dir))
+		if !empty(findfile(a:cs . '.vim', matchstr(split(&rtp, ','), a:dir) . '**'))
+			exe 'colorscheme ' . a:cs
+		else
+			if !empty(findfile(a:cs . '.vim', $HOME . '/.vim/colors' . '**'))
+				exe 'colorscheme ' . a:cs
+			endif
+		endif
+	else
+		if !empty(findfile(a:cs . '.vim', $HOME . '/.vim/colors' . '**'))
+			exe 'colorscheme ' . a:cs
+		endif
+	endif
+endfunction
+
 function! DebugVim(target)
 	" Define anything needs to be debug
 	echo "DebugVim +++"
@@ -499,19 +515,13 @@ let g:neocomplcache_enable_at_startup = 1
 " CACE: ctag and cscope enhance plugin
 "------------------------------------------------------------------------------
 let g:caceInfoEveryTime = 1
-let g:caceHighlightEnhance=1
+let g:caceHighlightEnhance = 1
 "------------------------------------------------------------------------------
 " Phcs: a colorscheme
 "------------------------------------------------------------------------------
-if !empty(matchstr(&rtp, "phcolorscheme"))
-	if !empty(findfile("phcs.vim", matchstr(split(&rtp, ','), 'phcolorscheme') . '**'))
-		colorscheme phcs
-	endif
-else
-	if !empty(findfile("phcs.vim", $HOME . '/.vim/colors' . '**'))
-		colorscheme phcs
-	endif
-endif
+let g:phcsPreResetOn = 1
+let g:phcsCursorLineUnderline = 0
+exe "call SetColorScheme('phcolorscheme', 'phcs')"
 "------------------------------------------------------------------------------
 " SnipMeta:
 "------------------------------------------------------------------------------
