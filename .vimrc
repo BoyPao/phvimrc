@@ -174,8 +174,8 @@ nmap <leader>vv :e! ~/.vimrc<cr>
 " Open/close paste mode
 map <leader>pp :call SwitchPasteMode()<cr>
 " Use Tab & S-Tab to complete
-inoremap <Tab> <C-R>=CleverTabForCompletion(0)<CR>
-inoremap <S-Tab> <C-R>=CleverTabForCompletion(1)<CR>
+inoremap <silent> <Tab> <C-R>=CleverTabForCompletion(0)<CR>
+inoremap <silent> <S-Tab> <C-R>=CleverTabForCompletion(1)<CR>
 " Forbid Up & Down in popup menu
 inoremap <Down> <C-R>=pumvisible() ? "\<lt>C-Y>\<lt>Down>" : "\<lt>Down>"<CR>
 inoremap <Up> <C-R>=pumvisible() ? "\<lt>C-Y>\<lt>Up>" : "\<lt>Up>"<CR>
@@ -514,7 +514,6 @@ let g:neocomplcache_enable_at_startup = 1
 "------------------------------------------------------------------------------
 " CACE: ctag and cscope enhance plugin
 "------------------------------------------------------------------------------
-let g:caceInfoEveryTime = 1
 let g:caceHighlightEnhance = 1
 "------------------------------------------------------------------------------
 " Phcs: a colorscheme
