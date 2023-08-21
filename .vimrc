@@ -20,12 +20,12 @@ let mapleader = ","
 let g:mapleader = ","
 " Try to config persistent undo
 try
-    if MySys() == "windows"
-      set undodir=C:\Windows\Temp
-    else
-      set undodir=~/.vim/undo_cache
-    endif
-    set undofile
+	if MySys() == "windows"
+		set undodir=C:\Windows\Temp
+	else
+		set undodir=~/.vim/undo_cache
+	endif
+	set undofile
 catch
 endtry
 
@@ -198,10 +198,10 @@ cno ,rr .,.s/<C-R>=expand("<cword>")<CR>//g <left><left><left>
 "==============================================================================
 " Set vim jump to the last position when reopening a file
 if has("autocmd")
-    autocmd BufReadPost *
-                \ if line("'\"") > 1 && line("'\"") <= line("$") |
-                \   exe "normal g`\"" |
-                \ endif
+	autocmd BufReadPost *
+				\ if line("'\"") > 1 && line("'\"") <= line("$") |
+				\   exe "normal g`\"" |
+				\ endif
 endif
 " When vimrc is edited, reload it
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
@@ -216,7 +216,7 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 " Functions
 "==============================================================================
 func! DeleteTrailingWS()
-  %s/\s\+$//ge
+	%s/\s\+$//ge
 endfunc
 
 let g:numShowState="ON"
@@ -437,7 +437,7 @@ set foldmethod=manual
 set cc=80
 " jump to the first open window that contains the specified buffer
 try
-  set switchbuf=usetab
+	set switchbuf=usetab
 catch
 endtry
 " Word won't be seprated by iskeyword symbols. Related to searching.
