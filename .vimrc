@@ -45,12 +45,14 @@ nmap hh :split<cr>
 nmap qq :bd<cr>
 " Use ww replace buffer control
 nmap ww <C-W>
-" Keep same buffer control method in terminal
-tmap ww <C-W>
-" Exit terminal method
-tmap qq exit<cr>
-" Enter normal mode in terminal
-tmap <C-n> <C-W>N<cr>
+if version > 800
+	" Keep same buffer control method in terminal
+	tmap ww <C-W>
+	" Exit terminal method
+	tmap qq exit<cr>
+	" Enter normal mode in terminal
+	tmap <C-n> <C-W>N<cr>
+endif
 " Turn order of buffers towards right side
 nmap tt <C-w>r
 " Change window width
