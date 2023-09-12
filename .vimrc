@@ -45,7 +45,7 @@ nmap hh :split<cr>
 nmap qq :bd<cr>
 " Use ww replace buffer control
 nmap ww <C-W>
-if version > 800
+if version >= 800
 	" Keep same buffer control method in terminal
 	tmap ww <C-W>
 	" Exit terminal method
