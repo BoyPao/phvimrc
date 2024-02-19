@@ -38,20 +38,20 @@ nmap <leader>dd :call DebugVim('0')<CR>
 " BufferControls:
 "------------------------------------------------------------------------------
 " New buffer vertically
-nmap vv :vsplit<cr>
+nmap vv :vsplit<CR>
 " New buffer horizontally
-nmap hh :split<cr>
+nmap hh :split<CR>
 " close current buffer
-nmap qq :bd<cr>
+nmap qq :bd<CR>
 " Use ww replace buffer control
 nmap ww <C-W>
 if version >= 800
 	" Keep same buffer control method in terminal
 	tmap ww <C-W>
 	" Exit terminal method
-	tmap qq exit<cr>
+	tmap qq exit<CR>
 	" Enter normal mode in terminal
-	tmap <C-n> <C-W>N<cr>
+	tmap <C-n> <C-W>N<CR>
 endif
 " Turn order of buffers towards right side
 nmap tt <C-w>r
@@ -62,38 +62,38 @@ nmap >> 5<C-w>>
 nmap ++ 5<C-w>+
 nmap -- 5<C-w>-
 " Switch between buffers
-nmap .. :bnext<cr>
-nmap ,, :bprevious<cr>
+nmap .. :bnext<CR>
+nmap ,, :bprevious<CR>
 "------------------------------------------------------------------------------
 " FunctionalWindows:
 "------------------------------------------------------------------------------
 " Open/close Tlist
-nmap ll :TlistToggle<cr>
+nmap ll :TlistToggle<CR>
 " Open /close NERDTree
 nmap kk :NERDTreeToggle<CR>
 " Open/close MiniBufExp
-nmap oo :TMiniBufExplorer<cr>
+nmap oo :TMiniBufExplorer<CR>
 " Open/close BufExplorer
-nmap <leader>kk :BufExplorerVerticalSplit<cr>
+nmap <leader>kk :BufExplorerVerticalSplit<CR>
 " Cope use quickfix to show make info in vim
-nmap <leader>co :botright cope<cr>
-nmap <leader>cn :cn<cr>
-nmap <leader>cp :cp<cr>
+nmap <leader>co :botright cope<CR>
+nmap <leader>cn :cn<CR>
+nmap <leader>cp :cp<CR>
 " ConqueTerm can add a window to show shell result in vim
-nmap <C-p> :vertical rightbelow terminal<cr>
-nmap <C-o> :terminal<cr>
+nmap <C-p> :vertical rightbelow terminal<CR>
+nmap <C-o> :terminal<CR>
 " On/off cscopequickfix
 nmap <leader>cq :Cacequickfixtrigger<CR>
 "------------------------------------------------------------------------------
 " Reading:
 "------------------------------------------------------------------------------
 " Cancel highlight in current search
-map <silent> <leader><cr> :noh<cr>
+map <silent> <leader><CR> :noh<CR>
 map <silent> <leader>cc :call ColorColumnSwitch()<CR>
 " Show line number or not
-nmap <silent>22 :call SwitchNumShow()<cr>
+nmap <silent>22 :call SwitchNumShow()<CR>
 " Open/close spell checking
-map <leader>ss :setlocal spell!<cr>
+map <leader>ss :setlocal spell!<CR>
 " Spell checking jumpment
 map <leader>sn ]s
 map <leader>sp [s
@@ -101,11 +101,11 @@ map <leader>sa zg
 map <leader>s? z=
 " Tab configuration
 nmap <leader>te :tabedit
-nmap <leader>tc :tabclose<cr>
+nmap <leader>tc :tabclose<CR>
 nmap <leader>tm :tabmove
-nmap <leader>tn :tabnext<cr>
+nmap <leader>tn :tabnext<CR>
 " When pressing <leader>cd switch to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>
+map <leader>cd :cd %:p:h<CR>
 " use n/N/<leader>g to search current selection in visual mode
 vnoremap <silent> <leader>zt y:call VisualSearch('vg')<CR>
 vnoremap <silent> n y:call VisualSearch('f')<CR>
@@ -134,47 +134,49 @@ nnoremap <silent> ze :Cacefind e <C-R>=expand("<cword>")<CR><CR>
 nnoremap <silent> zf :Cacefind f <C-R>=expand("<cfile>")<CR><CR>
 " find who include target file
 nnoremap <silent> zi :Cacefind i <C-R>=expand("<cfile>")<CR><CR>
+" find where this symbol is assigned value
+nnoremap <silent> za :Cacefind a <C-R>=expand("<cword>")<CR><CR>
 " Cace grep
 nnoremap <silent> <leader>zt :Cacegrep <C-R>=expand("<cword>")<CR><CR>
 "------------------------------------------------------------------------------
 " Edition:
 "------------------------------------------------------------------------------
 "F7 comment selected lines
-vmap <F7> :s=^\(//\)*=//=g<cr>:noh<cr>
-nmap <F7> :s=^\(//\)*=//=g<cr>:noh<cr>
-imap <F7> <ESC>:s=^\(//\)*=//=g<cr>:noh<cr>
-vmap <F7># :s=^\(#\)*=#=g<cr>:noh<cr>
-nmap <F7># :s=^\(#\)*=#=g<cr>:noh<cr>
-imap <F7># <ESC>:s=^\(#\)*=#=g<cr>:noh<cr>
-vmap <F7>" :s=^\("\)*="=g<cr>:noh<cr>
-nmap <F7>" :s=^\("\)*="=g<cr>:noh<cr>
-imap <F7>" <ESC>:s=^\("\)*="=g<cr>:noh<cr>
+vmap <F7> :s=^\(//\)*=//=g<CR>:noh<CR>
+nmap <F7> :s=^\(//\)*=//=g<CR>:noh<CR>
+imap <F7> <ESC>:s=^\(//\)*=//=g<CR>:noh<CR>
+vmap <F7># :s=^\(#\)*=#=g<CR>:noh<CR>
+nmap <F7># :s=^\(#\)*=#=g<CR>:noh<CR>
+imap <F7># <ESC>:s=^\(#\)*=#=g<CR>:noh<CR>
+vmap <F7>" :s=^\("\)*="=g<CR>:noh<CR>
+nmap <F7>" :s=^\("\)*="=g<CR>:noh<CR>
+imap <F7>" <ESC>:s=^\("\)*="=g<CR>:noh<CR>
 "F6 Uncomment selected lines
-vmap <F6> :s=^\(//\)*==g<cr>:noh<cr>
-nmap <F6> :s=^\(//\)*==g<cr>:noh<cr>
-imap <F6> <ESC>:s=^\(//\)*==g<cr>:noh<cr>
-vmap <F6># :s=^\(#\)*==g<cr>:noh<cr>
-nmap <F6># :s=^\(#\)*==g<cr>:noh<cr>
-imap <F6># <ESC>:s=^\(#\)*==g<cr>:noh<cr>
-vmap <F6>" :s=^\("\)*==g<cr>:noh<cr>
-nmap <F6>" :s=^\("\)*==g<cr>:noh<cr>
-imap <F6>" <ESC>:s=^\("\)*==g<cr>:noh<cr>
+vmap <F6> :s=^\(//\)*==g<CR>:noh<CR>
+nmap <F6> :s=^\(//\)*==g<CR>:noh<CR>
+imap <F6> <ESC>:s=^\(//\)*==g<CR>:noh<CR>
+vmap <F6># :s=^\(#\)*==g<CR>:noh<CR>
+nmap <F6># :s=^\(#\)*==g<CR>:noh<CR>
+imap <F6># <ESC>:s=^\(#\)*==g<CR>:noh<CR>
+vmap <F6>" :s=^\("\)*==g<CR>:noh<CR>
+nmap <F6>" :s=^\("\)*==g<CR>:noh<CR>
+imap <F6>" <ESC>:s=^\("\)*==g<CR>:noh<CR>
 " Repeat to replace word in cursor line
 nmap <Leader>rr :call RepeatOneLineReplace("<C-R>=expand("<cword>")<CR>")<CR>
 " Delete white space
-nmap ds :%s/\s\+$//g<cr>
+nmap ds :%s/\s\+$//g<CR>
 " Delete ^M(\r) from windows
-nmap dm :%s///g<cr>
+nmap dm :%s///g<CR>
 " Use vim to check diff within two windows
-nmap dt :diffthis<cr>
+nmap dt :diffthis<CR>
 " update diff
-nmap du :diffupdate<cr>
+nmap du :diffupdate<CR>
 " Use TAB or Ctl+I to switch mouse copy on/off
 nmap <C-I> :call SwitchMouseState()<CR>
 " Fast editing of the .vimrc
-nmap <leader>vv :e! ~/.vimrc<cr>
+nmap <leader>vv :e! ~/.vimrc<CR>
 " Open/close paste mode
-map <leader>pp :call SwitchPasteMode()<cr>
+map <leader>pp :call SwitchPasteMode()<CR>
 " Use Tab & S-Tab to complete
 inoremap <silent> <Tab> <C-R>=CleverTabForCompletion(0)<CR>
 inoremap <silent> <S-Tab> <C-R>=CleverTabForCompletion(1)<CR>
@@ -187,7 +189,7 @@ inoremap <Enter> <C-R>=pumvisible() ? "\<lt>C-Y>" : "\<lt>Enter>"<CR>
 " Word map
 "==============================================================================
 " Insert ctime and press Enter, ctime will be replaced by current time
-iab ctime <c-r>=strftime("%y/%m/%d/ %H:%M")<cr>
+iab ctime <c-r>=strftime("%y/%m/%d/ %H:%M")<CR>
 
 "==============================================================================
 " CMD map
@@ -232,16 +234,16 @@ function! SwitchNumShow()
 	endif
 endfunction
 
-let g:mouseState="OFF"
+let g:mouseCopy="OFF"
 function! SwitchMouseState()
-	if g:mouseState=="ON"
-		let g:mouseState="OFF"
+	if g:mouseCopy=="ON"
+		let g:mouseCopy="OFF"
 		set mouse=n
-	elseif g:mouseState=="OFF"
-		let g:mouseState="ON"
+	elseif g:mouseCopy=="OFF"
+		let g:mouseCopy="ON"
 		set mouse=
 	endif
-	echohl PreCondit | echo " mouse copy: " g:mouseState | echohl None
+	echohl PreCondit | echo " mouse copy: " g:mouseCopy | echohl None
 endfunction
 
 let g:pasteState="OFF"
