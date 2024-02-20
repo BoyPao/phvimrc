@@ -16,7 +16,6 @@ filetype indent on
 " highlight depends on syntax of filetype
 syntax on
 " Set leader key
-let mapleader = ","
 let g:mapleader = ","
 " Try to config persistent undo
 try
@@ -33,91 +32,91 @@ endtry
 " Key map
 "==============================================================================
 " A map for vim config debug
-nmap <leader>dd :call DebugVim('0')<CR>
+nnoremap <Leader>dd :call DebugVim('0')<CR>
 "------------------------------------------------------------------------------
 " BufferControls:
 "------------------------------------------------------------------------------
 " New buffer vertically
-nmap vv :vsplit<CR>
+nnoremap vv :vsplit<CR>
 " New buffer horizontally
-nmap hh :split<CR>
+nnoremap hh :split<CR>
 " close current buffer
-nmap qq :bd<CR>
+nnoremap qq :bd<CR>
 " Use ww replace buffer control
-nmap ww <C-W>
+nnoremap ww <C-W>
 if version >= 800
 	" Keep same buffer control method in terminal
-	tmap ww <C-W>
+	tnoremap ww <C-W>
 	" Exit terminal method
-	tmap qq exit<CR>
+	tnoremap qq exit<CR>
 	" Enter normal mode in terminal
-	tmap <C-n> <C-W>N<CR>
+	tnoremap <C-n> <C-W>N<CR>
 endif
 " Turn order of buffers towards right side
-nmap tt <C-w>r
+nnoremap tt <C-w>r
 " Change window width
-nmap << 5<C-w><
-nmap >> 5<C-w>>
+nnoremap << 5<C-w><
+nnoremap >> 5<C-w>>
 " Change window height
-nmap ++ 5<C-w>+
-nmap -- 5<C-w>-
+nnoremap ++ 5<C-w>+
+nnoremap -- 5<C-w>-
 " Switch between buffers
-nmap .. :bnext<CR>
-nmap ,, :bprevious<CR>
+nnoremap .. :bnext<CR>
+nnoremap ,, :bprevious<CR>
 "------------------------------------------------------------------------------
 " FunctionalWindows:
 "------------------------------------------------------------------------------
 " Open/close Tlist
-nmap ll :TlistToggle<CR>
+nnoremap ll :TlistToggle<CR>
 " Open /close NERDTree
-nmap kk :NERDTreeToggle<CR>
+nnoremap kk :NERDTreeToggle<CR>
 " Open/close MiniBufExp
-nmap oo :TMiniBufExplorer<CR>
+nnoremap oo :TMiniBufExplorer<CR>
 " Open/close BufExplorer
-nmap <leader>kk :BufExplorerVerticalSplit<CR>
+nnoremap <Leader>kk :BufExplorerVerticalSplit<CR>
 " Cope use quickfix to show make info in vim
-nmap <leader>co :botright cope<CR>
-nmap <leader>cn :cn<CR>
-nmap <leader>cp :cp<CR>
+nnoremap <Leader>co :botright cope<CR>
+nnoremap <Leader>cn :cn<CR>
+nnoremap <Leader>cp :cp<CR>
 " ConqueTerm can add a window to show shell result in vim
-nmap <C-p> :vertical rightbelow terminal<CR>
-nmap <C-o> :terminal<CR>
+nnoremap <C-p> :vertical rightbelow terminal<CR>
+nnoremap <C-o> :terminal<CR>
 " On/off cscopequickfix
-nmap <leader>cq :Cacequickfixtrigger<CR>
+nnoremap <Leader>cq :Cacequickfixtrigger<CR>
 "------------------------------------------------------------------------------
 " Reading:
 "------------------------------------------------------------------------------
 " Cancel highlight in current search
-map <silent> <leader><CR> :noh<CR>
-map <silent> <leader>cc :call ColorColumnSwitch()<CR>
+nnoremap <silent> <Leader><CR> :noh<CR>
+nnoremap <silent> <Leader>cc :call ColorColumnSwitch()<CR>
 " Show line number or not
-nmap <silent>22 :call SwitchNumShow()<CR>
+nnoremap <silent>22 :call SwitchNumShow()<CR>
 " Open/close spell checking
-map <leader>ss :setlocal spell!<CR>
+nnoremap <Leader>ss :setlocal spell!<CR>
 " Spell checking jumpment
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
+nnoremap <Leader>sn ]s
+nnoremap <Leader>sp [s
+nnoremap <Leader>sa zg
+nnoremap <Leader>s? z=
 " Tab configuration
-nmap <leader>te :tabedit
-nmap <leader>tc :tabclose<CR>
-nmap <leader>tm :tabmove
-nmap <leader>tn :tabnext<CR>
-" When pressing <leader>cd switch to the directory of the open buffer
-map <leader>cd :cd %:p:h<CR>
-" use n/N/<leader>g to search current selection in visual mode
-vnoremap <silent> <leader>zt y:call VisualSearch('vg')<CR>
+nnoremap <Leader>te :tabedit
+nnoremap <Leader>tc :tabclose<CR>
+nnoremap <Leader>tm :tabmove
+nnoremap <Leader>tn :tabnext<CR>
+" When pressing <Leader>cd switch to the directory of the open buffer
+nnoremap <Leader>cd :cd %:p:h<CR>
+" use n/N/<Leader>g to search current selection in visual mode
+vnoremap <silent> <Leader>zt y:call VisualSearch('vg')<CR>
 vnoremap <silent> n y:call VisualSearch('f')<CR>
 vnoremap <silent> N y:call VisualSearch('b')<CR>
 " MHL maps
 " trigger match highlight
-map <silent> <leader>m :MhlTriggerMatch<CR>
+nnoremap <silent> <Leader>m :MhlTriggerMatch<CR>
 " clear all match highlight
-map <silent> <leader>n :MhlClearAllMatch<CR>
+nnoremap <silent> <Leader>n :MhlClearAllMatch<CR>
 " CACE maps
 " Auto generate/update DB
-map <silent> <C-@> :Caceupdate<CR>
+nnoremap <silent> <C-@> :Caceupdate<CR>
 " find definiation
 nnoremap <silent> zg :Cacefind g <C-R>=expand("<cword>")<CR><CR>
 " find who calls
@@ -137,46 +136,46 @@ nnoremap <silent> zi :Cacefind i <C-R>=expand("<cfile>")<CR><CR>
 " find where this symbol is assigned value
 nnoremap <silent> za :Cacefind a <C-R>=expand("<cword>")<CR><CR>
 " Cace grep
-nnoremap <silent> <leader>zt :Cacegrep <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> <Leader>zt :Cacegrep <C-R>=expand("<cword>")<CR><CR>
 "------------------------------------------------------------------------------
 " Edition:
 "------------------------------------------------------------------------------
 "F7 comment selected lines
-vmap <F7> :s=^\(//\)*=//=g<CR>:noh<CR>
-nmap <F7> :s=^\(//\)*=//=g<CR>:noh<CR>
-imap <F7> <ESC>:s=^\(//\)*=//=g<CR>:noh<CR>
-vmap <F7># :s=^\(#\)*=#=g<CR>:noh<CR>
-nmap <F7># :s=^\(#\)*=#=g<CR>:noh<CR>
-imap <F7># <ESC>:s=^\(#\)*=#=g<CR>:noh<CR>
-vmap <F7>" :s=^\("\)*="=g<CR>:noh<CR>
-nmap <F7>" :s=^\("\)*="=g<CR>:noh<CR>
-imap <F7>" <ESC>:s=^\("\)*="=g<CR>:noh<CR>
+vnoremap <F7> :s=^\(//\)*=//=g<CR>:noh<CR>
+nnoremap <F7> :s=^\(//\)*=//=g<CR>:noh<CR>
+inoremap <F7> <Esc>:s=^\(//\)*=//=g<CR>:noh<CR>
+vnoremap <F7># :s=^\(#\)*=#=g<CR>:noh<CR>
+nnoremap <F7># :s=^\(#\)*=#=g<CR>:noh<CR>
+inoremap <F7># <Esc>:s=^\(#\)*=#=g<CR>:noh<CR>
+vnoremap <F7>" :s=^\("\)*="=g<CR>:noh<CR>
+nnoremap <F7>" :s=^\("\)*="=g<CR>:noh<CR>
+inoremap <F7>" <Esc>:s=^\("\)*="=g<CR>:noh<CR>
 "F6 Uncomment selected lines
-vmap <F6> :s=^\(//\)*==g<CR>:noh<CR>
-nmap <F6> :s=^\(//\)*==g<CR>:noh<CR>
-imap <F6> <ESC>:s=^\(//\)*==g<CR>:noh<CR>
-vmap <F6># :s=^\(#\)*==g<CR>:noh<CR>
-nmap <F6># :s=^\(#\)*==g<CR>:noh<CR>
-imap <F6># <ESC>:s=^\(#\)*==g<CR>:noh<CR>
-vmap <F6>" :s=^\("\)*==g<CR>:noh<CR>
-nmap <F6>" :s=^\("\)*==g<CR>:noh<CR>
-imap <F6>" <ESC>:s=^\("\)*==g<CR>:noh<CR>
+vnoremap <F6> :s=^\(//\)*==g<CR>:noh<CR>
+nnoremap <F6> :s=^\(//\)*==g<CR>:noh<CR>
+inoremap <F6> <Esc>:s=^\(//\)*==g<CR>:noh<CR>
+vnoremap <F6># :s=^\(#\)*==g<CR>:noh<CR>
+nnoremap <F6># :s=^\(#\)*==g<CR>:noh<CR>
+inoremap <F6># <Esc>:s=^\(#\)*==g<CR>:noh<CR>
+vnoremap <F6>" :s=^\("\)*==g<CR>:noh<CR>
+nnoremap <F6>" :s=^\("\)*==g<CR>:noh<CR>
+inoremap <F6>" <Esc>:s=^\("\)*==g<CR>:noh<CR>
 " Repeat to replace word in cursor line
-nmap <Leader>rr :call RepeatOneLineReplace("<C-R>=expand("<cword>")<CR>")<CR>
+nnoremap <Leader>rr :call RepeatOneLineReplace("<C-R>=expand("<cword>")<CR>")<CR>
 " Delete white space
-nmap ds :%s/\s\+$//g<CR>
+nnoremap ds :%s/\s\+$//g<CR>
 " Delete ^M(\r) from windows
-nmap dm :%s///g<CR>
+nnoremap dm :%s///g<CR>
 " Use vim to check diff within two windows
-nmap dt :diffthis<CR>
+nnoremap dt :diffthis<CR>
 " update diff
-nmap du :diffupdate<CR>
+nnoremap du :diffupdate<CR>
 " Use TAB or Ctl+I to switch mouse copy on/off
-nmap <C-I> :call SwitchMouseState()<CR>
+nnoremap <C-I> :call SwitchMouseState()<CR>
 " Fast editing of the .vimrc
-nmap <leader>vv :e! ~/.vimrc<CR>
+nnoremap <Leader>vv :e! ~/.vimrc<CR>
 " Open/close paste mode
-map <leader>pp :call SwitchPasteMode()<CR>
+nnoremap <Leader>pp :call SwitchPasteMode()<CR>
 " Use Tab & S-Tab to complete
 inoremap <silent> <Tab> <C-R>=CleverTabForCompletion(0)<CR>
 inoremap <silent> <S-Tab> <C-R>=CleverTabForCompletion(1)<CR>
@@ -189,32 +188,32 @@ inoremap <Enter> <C-R>=pumvisible() ? "\<lt>C-Y>" : "\<lt>Enter>"<CR>
 " Word map
 "==============================================================================
 " Insert ctime and press Enter, ctime will be replaced by current time
-iab ctime <c-r>=strftime("%y/%m/%d/ %H:%M")<CR>
+iabbrev ctime <C-R>=strftime("%y/%m/%d/ %H:%M")<CR>
 
 "==============================================================================
 " CMD map
 "==============================================================================
 " Use vimgrep for string search
-cno ,rr .,.s/<C-R>=expand("<cword>")<CR>//g <left><left><left>
+cnoremap ,rr .,.s/<C-R>=expand("<cword>")<CR>//g <left><left><left>
 
 "==============================================================================
 " Auto CMD
 "==============================================================================
-" Set vim jump to the last position when reopening a file
 if has("autocmd")
+	" Set vim jump to the last position when reopening a file
 	autocmd BufReadPost *
 				\ if line("'\"") > 1 && line("'\"") <= line("$") |
 				\   exe "normal g`\"" |
 				\ endif
+	" When vimrc is edited, reload it
+	autocmd! bufwritepost $MYVIMRC source $MYVIMRC
+	" Delete witespace while saving file
+	autocmd BufWrite * :call DeleteTrailingWS()
+	" Exit Vim if NERDTree is the only window remaining in the only tab.
+	autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+	" Close the tab if NERDTree is the only window remaining in it.
+	autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 endif
-" When vimrc is edited, reload it
-autocmd! bufwritepost $MYVIMRC source $MYVIMRC
-" Delete witespace while saving file
-autocmd BufWrite * :call DeleteTrailingWS()
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-" Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 "==============================================================================
 " Functions
