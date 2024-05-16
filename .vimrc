@@ -91,6 +91,8 @@ nnoremap <silent> <Leader><CR> :noh<CR>
 nnoremap <silent> <Leader>cc :call ColorColumnSwitch()<CR>
 " Show line number or not
 nnoremap <silent>22 :call SwitchNumShow()<CR>
+" Switch Tab num
+nnoremap <silent>33 :call SwitchTabNum()<CR>
 " Open/close spell checking
 nnoremap <Leader>ss :setlocal spell!<CR>
 " Spell checking jumpment
@@ -221,6 +223,21 @@ endif
 func! DeleteTrailingWS()
 	%s/\s\+$//ge
 endfunc
+
+let g:tabNum = 4
+function! SwitchTabNum()
+	if g:tabNum == 4
+		let g:tabNum = 8
+		set list
+	elseif g:tabNum == 8
+		let g:tabNum = 4
+		set nolist
+	endif
+	exe 'set shiftwidth=' . g:tabNum
+	exe 'set tabstop=' . g:tabNum
+	exe 'set softtabstop=' . g:tabNum
+	echohl PreCondit | echo " Tab: " g:tabNum | echohl None
+endfunction
 
 let g:numShowState="ON"
 function! SwitchNumShow()
@@ -410,6 +427,8 @@ set nobackup
 set nowb
 " Off vim swapfile
 set noswapfile
+" Use specified char to disply string content
+set listchars=tab:'``
 " Set coding auto shitf
 set shiftwidth=4
 " Set TAB shift
@@ -430,8 +449,6 @@ set si
 set wrap
 " Wrap will not seprate a word
 set lbr
-" Use specified char to disply string content
-set listchars=tab:>-,trail:-
 " While editing, words num over tw will be wrapped.
 set tw=500
 " Set flodmethod as maual
