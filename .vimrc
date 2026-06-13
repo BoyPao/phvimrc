@@ -477,7 +477,13 @@ if !empty(findfile("plug.vim", $HOME . "/.vim/autoload/**"))
 	Plug 'vim-scripts/minibufexpl.vim'
 	Plug 'vim-scripts/taglist.vim'
 	Plug 'vim-scripts/OmniCppComplete'
-	Plug 'vim-scripts/neocomplcache'
+	if version >= 800
+		Plug 'Shougo/deoplete.nvim'
+		Plug 'roxma/nvim-yarp'
+		Plug 'roxma/vim-hug-neovim-rpc'
+	else
+		Plug 'Shougo/neocomplete.vim'
+	endif
 	Plug 'preservim/nerdtree'
 	Plug 'BoyPao/cace'
 	Plug 'BoyPao/phcolorscheme'
@@ -527,10 +533,14 @@ let Tlist_Show_One_File=1
 " Exit vim if Tlist is only opening buffer
 let Tlist_Exit_OnlyWindow=1
 "------------------------------------------------------------------------------
-" Neocomplcache: maintaining a cache of keywords in the current buffer
+" Complcache: maintaining a cache of keywords in the current buffer
 "------------------------------------------------------------------------------
-"run neocomplete while vim startup
-let g:neocomplcache_enable_at_startup = 1
+"run complete while vim startup
+if version >= 800
+	let g:deoplete#enable_at_startup = 1
+else
+	let g:neocomplcache_enable_at_startup = 1
+endif
 "------------------------------------------------------------------------------
 " CACE: ctag and cscope enhance plugin
 "------------------------------------------------------------------------------
